@@ -20,7 +20,7 @@ public class Runner {
             switch (choice) {
             case 1:
                 System.out.println("Enter integer element to insert");
-                bt.insert(scan.nextInt());
+                bt.insert(scan.nextInt(), scan.nextInt(), new Glitch(scan.nextInt(), scan.nextInt()));
                 break;
             case 2:
                 System.out.println("Enter integer element to search");
