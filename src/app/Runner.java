@@ -24,7 +24,7 @@ public class Runner {
                 break;
             case 2:
                 System.out.println("Enter integer element to search");
-                System.out.println("Search result : " + bt.search(scan.nextInt()));
+                System.out.println("Search result : " + bt.search(scan.nextInt(), scan.nextInt()));
                 break;
             case 3:
                 System.out.println("Nodes = " + bt.countNodes());
@@ -46,5 +46,7 @@ public class Runner {
             System.out.println("\n\nDo you want to continue (Type y or n) \n");
             ch = scan.next().charAt(0);
         } while (ch == 'Y' || ch == 'y');
+
+        scan.close();
     }
 }

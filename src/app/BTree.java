@@ -50,20 +50,18 @@ class BT {
     }
 
     /* Function to search for an element */
-    public boolean search(int val) {
-        return search(root, val);
+    public boolean search(int valStart, int valEnd) {
+        return search(root, valStart, valEnd);
     }
 
     /* Function to search for an element recursively */
-    private boolean search(BTNode r, int val) {
-        if (r.getData() == val)
+    private boolean search(BTNode r, int start, int end) {
+        if (r.getStartValues() == start && r.getEndValues() == end)
             return true;
         if (r.getLeft() != null)
-            if (search(r.getLeft(), val))
-                return true;
+            return search(r.getLeft(), start, end);
         if (r.getRight() != null)
-            if (search(r.getRight(), val))
-                return true;
+            return search(r.getRight(), start, end);
         return false;
     }
 
@@ -75,7 +73,7 @@ class BT {
     private void inorder(BTNode r) {
         if (r != null) {
             inorder(r.getLeft());
-            System.out.print(r.getData() + " ");
+            System.out.print(r.getStartValues() + "-" + r.getEndValues()+" ");
             inorder(r.getRight());
         }
     }
@@ -87,7 +85,7 @@ class BT {
 
     private void preorder(BTNode r) {
         if (r != null) {
-            System.out.print(r.getData() + " ");
+            System.out.print(r.getStartValues() + "-" + r.getEndValues()+" ");
             preorder(r.getLeft());
             preorder(r.getRight());
         }
@@ -102,7 +100,7 @@ class BT {
         if (r != null) {
             postorder(r.getLeft());
             postorder(r.getRight());
-            System.out.print(r.getData() + " ");
+            System.out.print(r.getStartValues() + "-" + r.getEndValues()+" ");
         }
     }
 }
